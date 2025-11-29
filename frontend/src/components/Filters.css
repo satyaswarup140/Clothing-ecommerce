@@ -1,0 +1,24 @@
+.filters {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  border: 1px solid #e2e8f0;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filters label {
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.filters input,
+.filters select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e0;
+}

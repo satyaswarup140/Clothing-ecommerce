@@ -1,0 +1,45 @@
+.nav { 
+  background: #ffffff; 
+  padding: 16px 0; 
+  border-bottom: 1px solid #e2e8f0; 
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo { 
+  font-size: 24px;
+  font-weight: 700;
+  color: #2b6cb0;
+  text-decoration: none;
+}
+
+.nav-links a {
+  margin-right: 20px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-actions a {
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.cart-btn, .login-btn {
+  background: #2b6cb0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: white;
+  transition: 0.3s;
+}
+
+.cart-btn:hover, .login-btn:hover {
+  background: #1e4e89;
+}
