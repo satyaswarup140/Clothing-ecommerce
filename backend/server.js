@@ -16,19 +16,33 @@ connectDB();
 
 const app = express();
 
-// CORS
+// Dynamic CORS for Render
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  "http://localhost:5173"
+];
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true
   })
 );
 
 // Body parser
 app.use(express.json());
-
-// Cookie parser — added correctly
 app.use(cookieParser());
+
+// Test route for Render
+app.get("/", (req, res) => {
+  res.send("Backend deployed successfully!");
+});
 
 // Routes
 app.use("/api/auth", authRoutes);
@@ -39,5 +53,6 @@ app.use("/api/orders", orderRoutes);
 // Global error handler
 app.use(errorHandler);
 
+// Port
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
